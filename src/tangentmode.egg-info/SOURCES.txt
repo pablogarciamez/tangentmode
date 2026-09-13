@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/tangentmode/__init__.py
+src/tangentmode.egg-info/PKG-INFO
+src/tangentmode.egg-info/SOURCES.txt
+src/tangentmode.egg-info/dependency_links.txt
+src/tangentmode.egg-info/top_level.txt
+tests/test_duals.py
