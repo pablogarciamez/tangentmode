@@ -1,6 +1,7 @@
 from tangentmode import Dual
 from tangentmode import exp, log, sin, cos, derivative
 import pytest
+import math
 
 def test_cube_of_two():
     def f(x): return x*x*x
@@ -60,3 +61,10 @@ def test_cos():
 
 def test_derivative():
     assert derivative(exp, 0) == pytest.approx(1)
+
+def test_derivative_function_against_aproximation():
+    def f(x): return -sin(x) ** 2 - 3 * log(x - 2) + cos(exp(x / log(x)))
+    def g(x): return -math.sin(x) ** 2 - 3 * math.log(x - 2) + math.cos(math.exp(x / math.log(x)))
+    x = 10
+    h = 1e-6
+    assert derivative(f, x) == pytest.approx((g(x + h) - g(x - h)) / (2 * h))
