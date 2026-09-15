@@ -48,5 +48,8 @@ class Dual:
         other = Dual._to_dual(other)
         return self.real == other.real and self.dual == other.dual
 
+    def __pow__(self, exp):
+        return Dual(self.real ** exp, exp * self.real ** (exp - 1) * self.dual)
+
     def __repr__(self):
         return f"Dual({self.real}, {self.dual})"
